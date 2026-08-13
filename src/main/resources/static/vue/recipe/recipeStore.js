@@ -9,7 +9,11 @@ const initialState=()=>({
 	totalpage:0,
 	startPage:0,
 	endPage:0,
-	count:0
+	count:0,
+	no:0,
+	detail:{},
+	mList:[],
+	iList:[]
 })
 const useRecipeStore=defineStore('recipe_list',{
 	// 공유변수 
@@ -47,6 +51,18 @@ const useRecipeStore=defineStore('recipe_list',{
 		move(page){
 			this.curpage=page
 			this.recipeListData()
+		},
+		// 상세보기 
+		async recipeDetailData(){
+			const res=await api.get('/recipe/detail_vue',{
+				params:{
+					no:this.no
+				}
+			})
+			console.log(res.data)
+			this.detail=res.data.vo
+			this.mList=res.data.mList
+			this.iList=res.data.iList
 		}
 		
 	}
