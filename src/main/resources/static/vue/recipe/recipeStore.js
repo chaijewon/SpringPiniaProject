@@ -27,7 +27,7 @@ const useRecipeStore=defineStore('recipe_list',{
 	},
 	actions:{
 		async recipeListData(){
-			const res=await api.get('/recipe/list',{
+			const res=await api.get('/recipe/list_vue',{
 				params:{
 					page:this.curpage
 				}

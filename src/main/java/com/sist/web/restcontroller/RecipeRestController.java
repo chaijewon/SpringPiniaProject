@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class RecipeRestController {
   private final RecipeService rService;
-  @GetMapping("/recipe/list")
+  @GetMapping("/recipe/list_vue")
   public ResponseEntity<Map> recipe_list(@RequestParam(value="page",required = false) String page)
   {
 	  Map map=new HashMap();
